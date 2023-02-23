@@ -1,4 +1,8 @@
 FROM tomcat:8-jre11
+LABEL "Project"="java-application"
+LABEL "Author"="Ahmed"
+
+
 RUN rm -rf /usr/local/tomcat/webapps/*
 COPY target/java-app.war /usr/local/tomcat/webapps/ROOT.war
 
