@@ -18,6 +18,9 @@
 --
 -- Table structure for table `role`
 --
+--
+-- Table structure for table `role`
+--
 
 DROP TABLE IF EXISTS `role`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
