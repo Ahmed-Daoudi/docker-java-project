@@ -1,4 +1,8 @@
 FROM mysql:5.7.25
+LABEL "Project"="java-application"
+LABEL "Author"="Ahmed"
+
+
 ENV MYSQL_ROOT_PASSWORD="vprodbpass"
 ENV MYSQL_DATABASE="mysql-DB" 
 
