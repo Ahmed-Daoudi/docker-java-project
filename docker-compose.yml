@@ -5,7 +5,7 @@ services:
    ports:
      - "3306:3306"
    volumes:
-     - dbdata: /var/lib/mysql # set a volume to our container so we wont lose our data 
+     - dbdata: "/var/lib/mysql" # set a volume to our container so we wont lose our data 
    environment:
      - MYSQL_ROOT_PASSWORD=vprodbpass # we can inspect the docker image to extract infos or in docker hub too
    
@@ -27,7 +27,7 @@ services:
    ports:
      - "8080:8080"
    volumes:
-     - tomcatdata: /usr/local/tomcat/webapps
+     - tomcatdata: "/usr/local/tomcat/webapps"
 
   ngnix: 
    image: ahmeddaoudi/docker-nginx-server:nginx-config
