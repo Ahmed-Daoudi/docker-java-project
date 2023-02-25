@@ -1,11 +1,41 @@
 version: '3'
 services:
-  vprodb: #container name give it any name
+  vprodb: #container name give it any name : for mysql same in app.prop
    image: ahmeddaoudi/docker-mysql-db:mysql-db
    ports:
      - "3306:3306"
    volumes:
      - dbdata: /var/lib/mysql # set a volume to our container so we wont lose our data 
    environment:
-     - MYSQL_ROOT_PASSWORD=vprodbpass # we can inspect the docker image to extract infos. 
+     - MYSQL_ROOT_PASSWORD=vprodbpass # we can inspect the docker image to extract infos or in docker hub too
    
+  vprocache01:  #container name give it any name : for memcached same in app.prop
+   image: memcached
+   ports:
+     - "11211:11211"
+  
+  vpromq01: #container name give it any name : for mrabbitmq same in app.prop
+   image: rabbitmq
+   ports:
+     - "15672:15672"
+   environment:
+     - RABBITMQ_DEFAULT_USER=guest #same in app.props
+     - RABBITMQ_DEFAULT_PASS=guest
+  
+  java-app: #container name give it any name : for tomcat base on the ngnix config file .
+   image: ahmeddaoudi/docker-java-project:java-project
+   ports:
+     - "8080:8080"
+   volume:
+     - tomcatdata: /usr/local/tomcat/webapps
+
+  ngnix: 
+   image: ahmeddaoudi/docker-nginx-server:nginx-config
+   ports:
+   - "80:80"
+   
+volumes:
+  tomcatdata: {}
+  dbdata: {}
+
+     
