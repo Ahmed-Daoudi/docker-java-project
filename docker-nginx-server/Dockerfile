@@ -1,4 +1,4 @@
-FROM ngnix
+FROM nginx
 LABEL "Project"="java-application"
 LABEL "Author"="Ahmed"
 
