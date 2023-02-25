@@ -1,0 +1,11 @@
+version: '3'
+services:
+  vprodb: #container name give it any name
+   image: ahmeddaoudi/docker-mysql-db:mysql-db
+   ports:
+     - "3306:3306"
+   volumes:
+     - dbdata: /var/lib/mysql # set a volume to our container so we wont lose our data 
+   environment:
+     - MYSQL_ROOT_PASSWORD=vprodbpass # we can inspect the docker image to extract infos. 
+   
